@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
     def index
         @content_first = 'yolo index'
-        more_content = 'frolo'
     end
 
     def new
