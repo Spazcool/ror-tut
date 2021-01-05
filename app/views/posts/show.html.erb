@@ -1,3 +1,4 @@
 <h1>Posts#show</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
-<p>a yolo</p>
+<h3><%= @post.title %></h3>
+<small><%= @post.created_at.strftime("%b %d. %Y") %></small>
+<p><%= @post.body %></p>
