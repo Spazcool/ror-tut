@@ -2,3 +2,4 @@
 <h3><%= @post.title %></h3>
 <small><%= @post.created_at.strftime("%b %d. %Y") %></small>
 <p><%= @post.body %></p>
+<%= link_to 'Edit post', edit_post_path %> | <%= link_to 'delete', @post, :confirm => "are you sure brah?", :method => :delete %>

@@ -1,3 +1,18 @@
 <h1>Posts#edit</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
-<p>a yolo</p>
+<%= form_for @post do |f| %>
+    <p>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </p>
+    <p>
+        <%= f.label :body %>
+        <%= f.text_area :body %>
+    </p>
+    <p>
+        <%= f.select :category_id, Category.all.pluck(:name,:id),{prompt:'select'}%>
+    </p>
+    <p>
+        <%= f.submit 'Update Post'%>
+    </p>
+<% end %>
+<%= link_to "go back", post_path %> 
