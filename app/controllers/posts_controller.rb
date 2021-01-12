@@ -34,6 +34,11 @@ class PostsController < ApplicationController
 
     def create
         params.permit!
+
+        if params[:post]["category_id"] === '' # assign first category if none selected
+            params[:post]["category_id"] = 1
+        end
+
         @post = Post.new(params[:post])
 
         if @post.save
