@@ -1,9 +1,21 @@
-<p id="notice"><%= notice %></p>
+<table>
+  <thead>
+    <tr>
+      <th>Posts for <%= @category["name"] %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+  <tbody>
+  <% if @posts.each do |post| %>
+      <tr>
+        <td><%= link_to post["title"], post %></td>
+      </tr>
+  <% end.empty? %>
+    <p>No posts with this category.</p>
+  <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

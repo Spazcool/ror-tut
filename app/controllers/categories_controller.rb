@@ -1,26 +1,28 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action  only: [:show, :edit, :update, :destroy]
 
   # GET /categories
   # GET /categories.json
   def index
     @categories = Category.all
+    puts @categories[0]["name"]
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @categories}
-    end
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   # format.json { render json: @categories}
+    # end
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @category}
-    end
+    @title = @category.name
+    @posts = @category.posts
+    # respond_to do |format|
+    #   format.html # show.html.erb
+    #   # format.json { render json: @category}
+    # end
   end
 
 end
